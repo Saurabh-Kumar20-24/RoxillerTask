@@ -12,7 +12,17 @@ dotenv.config()
 
 const app = express()
 
-app.use(cors())
+const allowedOrigins = [
+  "http://localhost:5000", // local dev frontend
+  "https://roxiller-task.vercel.app" // deployed frontend
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true
+  })
+);
 app.use(express.json()); 
 
 connectDB()
