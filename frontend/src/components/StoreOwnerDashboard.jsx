@@ -6,7 +6,7 @@ const StoreOwnerDashboard = () => {
   const [store, setStore] = useState(null);
 
   const fetchDashboard = async () => {
-    const res = await fetch("http://localhost:5000/api/store-owner/dashboard", { headers: { Authorization: `Bearer ${getToken()}` } });
+    const res = await fetch("https://roxillertask.onrender.com/api/store-owner/dashboard", { headers: { Authorization: `Bearer ${getToken()}` } });
     setStore(await res.json());
   };
 

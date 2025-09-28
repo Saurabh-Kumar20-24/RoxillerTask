@@ -9,7 +9,7 @@ const StoreList = () => {
   const fetchStores = async () => {
     const query = `?name=${search.name}&address=${search.address}`;
     try {
-      const res = await fetch(`http://localhost:5000/api/stores${query}`, {
+      const res = await fetch(`https://roxillertask.onrender.com/api/stores${query}`, {
         headers: { Authorization: `Bearer ${getToken()}` }
       });
       const data = await res.json();
@@ -22,7 +22,7 @@ const StoreList = () => {
   // Submit or modify rating
   const submitRating = async (storeId, rating) => {
     try {
-      await fetch(`http://localhost:5000/api/stores/rate`, {
+      await fetch(`https://roxillertask.onrender.com/api/stores/rate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

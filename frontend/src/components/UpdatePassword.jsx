@@ -9,7 +9,7 @@ const UpdatePassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/user/update-password", {
+      const res = await fetch("https://roxillertask.onrender.com/api/user/update-password", {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",

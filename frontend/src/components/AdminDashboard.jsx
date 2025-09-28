@@ -11,21 +11,21 @@ const AdminDashboard = () => {
   const [userFilter, setUserFilter] = useState({ name: "", email: "", address: "", role: "" });
 
   const fetchDashboard = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/dashboard", { 
+    const res = await fetch("https://roxillertask.onrender.com/api/admin/dashboard", { 
       headers: { Authorization: `Bearer ${getToken()}` } 
     });
     setStats(await res.json());
   };
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/users", { 
+    const res = await fetch("https://roxillertask.onrender.com/api/admin/users", { 
       headers: { Authorization: `Bearer ${getToken()}` } 
     });
     setUsers(await res.json());
   };
 
   const fetchStores = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/stores", { 
+    const res = await fetch("https://roxillertask.onrender.com/api/admin/stores", { 
       headers: { Authorization: `Bearer ${getToken()}` } 
     });
     setStores(await res.json());

@@ -9,7 +9,7 @@ const AddStore = () => {
 
   // Fetch all store owners
   const fetchStoreOwners = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/users?role=storeOwner", {
+    const res = await fetch("https://roxillertask.onrender.com/api/admin/users?role=storeOwner", {
       headers: { Authorization: `Bearer ${getToken()}` }
     });
     const data = await res.json();
@@ -22,7 +22,7 @@ const AddStore = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/admin/add-store", {
+      const res = await fetch("https://roxillertask.onrender.com/api/admin/add-store", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",

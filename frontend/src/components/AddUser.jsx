@@ -9,7 +9,7 @@ const AddUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/admin/add-user", {
+      const res = await fetch("https://roxillertask.onrender.com/api/admin/add-user", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
