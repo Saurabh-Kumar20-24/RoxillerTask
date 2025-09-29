@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-  const [form, setForm] = useState({ name: "", email: "", address: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", address: "", password: "", role: "user" });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -29,6 +29,16 @@ const Signup = () => {
       <input placeholder="Email" name="email" type="email" onChange={handleChange} required />
       <input placeholder="Address" name="address" onChange={handleChange} required />
       <input placeholder="Password" name="password" type="password" onChange={handleChange} required />
+      <select 
+          name="role" 
+          value={form.role} 
+          onChange={handleChange} 
+          required
+        >
+          <option value="user">User</option>
+          <option value="storeOwner">Store Owner</option>
+          <option value="admin">Admin</option>
+        </select>
       <button type="submit">Signup</button>
     </form>
 
