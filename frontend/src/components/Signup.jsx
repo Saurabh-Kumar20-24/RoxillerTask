@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", address: "", password: "", role: "user" });
 
+  const navigate = useNavigate()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +17,12 @@ const Signup = () => {
         body: JSON.stringify(form)
       });
       const data = await res.json();
-      alert(data.message || "User registered successfully!");
+       if (res.ok) {
+        alert("Signup successful! Please login.");
+        navigate("/login");   // 👈 redirect to login
+      } else {
+        alert(data.message || "Something went wrong!");
+      }
     } catch (err) {
       console.error(err);
     }
