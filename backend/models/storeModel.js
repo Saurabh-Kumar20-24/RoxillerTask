@@ -8,7 +8,7 @@ const storeSchema = new mongoose.Schema({
   ratings: [
     { user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, rating: { type: Number, min: 1, max: 5 } }
   ]
-});
+},{timestamps: true,  toJSON: { virtuals: true }, toObject: { virtuals: true }});
 
 storeSchema.virtual("averageRating").get(function () {
   if (this.ratings.length === 0) return 0;
